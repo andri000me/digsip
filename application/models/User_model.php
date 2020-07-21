@@ -7,7 +7,7 @@ class User_model extends CI_Model
 
     public function getRoleID($email){
         $query="SELECT DISTINCT(u.`role_id`)
-        FROM user_access_table a, USER u
+        FROM user_access_table a, user u
         WHERE a.`id_user`=u.`id` AND u.`email`='$email'";
         
         return $this->db->query($query)-> result_array();
@@ -34,21 +34,21 @@ class User_model extends CI_Model
 
     public function member(){
         $query="SELECT *
-        FROM USER u, kepegawaian k
+        FROM user u, kepegawaian k
         WHERE u.`id`=k.`user_id`";        
         return $this->db->query($query)-> result_array();
     }
 
     public function memberv2(){
         $query="SELECT *
-        FROM USER u, kepegawaian k
+        FROM user u, kepegawaian k
         WHERE u.`id`=k.`user_id`";        
         return $this->db->query($query)-> result();
     }
     
     public function infopersonal($email){
         $query="SELECT *
-        FROM USER u, kepegawaian k
+        FROM user u, kepegawaian k
         WHERE u.`id`=k.`user_id` AND u.`email`='$email'";        
         return $this->db->query($query)-> result_array();
     }
@@ -112,7 +112,7 @@ class User_model extends CI_Model
 
     public function allDocNumber(){
         $query="SELECT * 
-        FROM nomor_surat n, USER u
+        FROM nomor_surat n, user u
         WHERE u.`id`=n.`user_id`";
         return $this->db->query($query)->result_array();
     }
